@@ -1,0 +1,6 @@
+.air/
+
+docker/postgres/data/
+docker/postgres/test-data/
+
+.env
