@@ -1,0 +1,47 @@
+# Xcode
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# User-specific Xcode settings
+*.xcuserstate
+xcuserdata/
+
+# Build products
+build/
+DerivedData/
+
+# Provisioning profiles
+*.mobileprovision
+*.provisionprofile
+
+# Archives
+*.ipa
+*.xcarchive
+
+# Swift Package Manager
+.build/
+Packages/
+Package.pins
+Package.resolved
+
+# Carthage
+Carthage/Checkouts/
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.tmp
+*.temp
+
+# Log files
+*.log
