@@ -1,0 +1,41 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/go/Dockerfile.dev
+    container_name: readsync-api
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/go/src/app
+    env_file: .env
+    tty: true
+    depends_on:
+      - db
+  db:
+    image: postgres:17
+    restart: always
+    container_name: readsync-db
+    ports:
+      - 5432:5432
+    environment:
+      TZ: Asia/Tokyo
+      POSTGRES_DB: readsync
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    
+    volumes:
+      - ./docker/postgres/data:/var/lib/postgresql/data
+  test-db:
+    image: postgres:17
+    restart: always
+    container_name: readsync-test-db
+    ports:
+      - 5433:5432
+    environment:
+      TZ: Asia/Tokyo
+      POSTGRES_DB: readsync_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./docker/postgres/test-data:/var/lib/postgresql/data
